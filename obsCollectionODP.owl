@@ -15,8 +15,9 @@
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
-    <owl:Ontology rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20">
+    <owl:Ontology rdf:about="https://github.com/aurioldegbelo/observationcollections">
         <rdfs:comment rdf:datatype="&xsd;string">An Ontology Design Pattern for Observation Collections</rdfs:comment>
+        <owl:versionInfo rdf:datatype="&xsd;string">First version developed by Auriol Degbelo</owl:versionInfo>
     </owl:Ontology>
     
 
@@ -35,6 +36,7 @@
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#fromObservedProperty -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#fromObservedProperty">
+        <rdfs:comment rdf:datatype="&xsd;string">Property useful to document the common observed property of all observations in the observation collection</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
     </owl:ObjectProperty>
     
@@ -43,6 +45,7 @@
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#hasCollector -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#hasCollector">
+        <rdfs:comment rdf:datatype="&xsd;string">Property useful to specify the collector of an observation collection</rdfs:comment>
         <rdfs:range rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Collector"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
     </owl:ObjectProperty>
@@ -52,6 +55,7 @@
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#hasMember -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#hasMember">
+        <rdfs:comment rdf:datatype="&xsd;string">Property useful to specify the members (i.e., observations) of an observation collection</rdfs:comment>
         <rdfs:range rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Observation"/>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
     </owl:ObjectProperty>
@@ -61,6 +65,7 @@
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#hasSpatialLocation -->
 
     <owl:ObjectProperty rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#hasSpatialLocation">
+        <rdfs:comment rdf:datatype="&xsd;string">Property useful to describe the spatial location of an observation collection</rdfs:comment>
         <rdfs:domain rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
     </owl:ObjectProperty>
     
@@ -81,13 +86,16 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#AugmentedTrajectory">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Trajectory"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An augmented trajectory includes additional thematic information about the object (e.g., velocity, body temperature, etc)</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Collector -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Collector"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Collector">
+        <rdfs:comment rdf:datatype="&xsd;string">Person or institution which decided to group many observation together and form an observation collection out of them</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -95,6 +103,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Coverage">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An observation collection which represents the variation of a property within a spatial extent at a time</rdfs:comment>
     </owl:Class>
     
 
@@ -103,6 +112,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#EventBasedCumulativeTimeSeries">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#TimeSeries"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Collection of observations which represent the cumulative value of the measured property and were produced as a result of a predefined event (e.g., high water level event, low water level event, bucket tip event, etc)</rdfs:comment>
     </owl:Class>
     
 
@@ -111,6 +121,8 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#EventBasedNonCumulativeTimeSeries">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#TimeSeries"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Collection of independent observations of the measured property which were generated as a result of a predefined event (e.g., high water level event, low water level event, bucket tip event, etc)
+</rdfs:comment>
     </owl:Class>
     
 
@@ -119,6 +131,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#IntervalBasedCumulativeTimeSeries">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#TimeSeries"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Collection of observations produced at regular time intervals and which represent cumulative values of the measured property</rdfs:comment>
     </owl:Class>
     
 
@@ -127,19 +140,25 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#IntervalBasedNonCumulativeTimeSeries">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#TimeSeries"/>
+        <rdfs:comment rdf:datatype="&xsd;string">Collection of independent observations of the measured property which were generated at regular time intervals</rdfs:comment>
     </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Observation -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Observation"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Observation">
+        <rdfs:comment rdf:datatype="&xsd;string">An Observation is a Situation in which a Sensing method has been used to estimate or calculate a value of a Property of a FeatureOfInterest</rdfs:comment>
+        <rdfs:seeAlso rdf:datatype="&xsd;string">http://purl.oclc.org/NET/ssnx/ssn</rdfs:seeAlso>
+    </owl:Class>
     
 
 
     <!-- http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection -->
 
-    <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
+    <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection">
+        <rdfs:comment rdf:datatype="&xsd;string">An observation collection is a group (or collection) of single observations which were all generated by observing the same observed property</rdfs:comment>
+    </owl:Class>
     
 
 
@@ -147,6 +166,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#RawTrajectory">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Trajectory"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A set of temporally-indexed positions (ak.a. fixes)</rdfs:comment>
     </owl:Class>
     
 
@@ -155,6 +175,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#SemanticTrajectory">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Trajectory"/>
+        <rdfs:comment rdf:datatype="&xsd;string">A semantic trajectory aggregates the geographic information that is necessary for the analysis of a trajectory</rdfs:comment>
     </owl:Class>
     
 
@@ -163,6 +184,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#TimeSeries">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An observation collection which represents the variation of a property over time at a fixed location</rdfs:comment>
     </owl:Class>
     
 
@@ -171,6 +193,7 @@
 
     <owl:Class rdf:about="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#Trajectory">
         <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/debelgo/ontologies/2016/3/untitled-ontology-20#ObservationCollection"/>
+        <rdfs:comment rdf:datatype="&xsd;string">An observation collection which represents how locations or boundaries of an object evolve over time</rdfs:comment>
     </owl:Class>
 </rdf:RDF>
 
